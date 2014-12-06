@@ -10,7 +10,7 @@ def stats_per_page(page=1):
     items_per_page = 10 
     offset = (page - 1) * items_per_page
     stats = Stats.objects_for_json.skip(offset).limit(items_per_page)
-    return Response(stats.to_json(), status=200, mimetype='application/json', headers={'Access-Control-Allow-Origin': '*'})
+    return Response(stats.to_json(), status=200, mimetype='application/json;charset=UTF-8', headers={'Access-Control-Allow-Origin': '*'})
 	
 def stats():
     initial = request.args.get('initial')
@@ -21,11 +21,11 @@ def stats():
     else:
         stats = Stats.objects_for_json.all().limit(10)
 		
-    return Response(stats.to_json(), status=200, mimetype='application/json', headers={'Access-Control-Allow-Origin': '*'})
+    return Response(stats.to_json(), status=200, mimetype='application/json;charset=UTF-8', headers={'Access-Control-Allow-Origin': '*'})
 
 def stats_last():
     stats = Stats.objects_for_json.all().limit(1).first()
-    return Response(stats.to_json(), status=200, mimetype='application/json', headers={'Access-Control-Allow-Origin': '*'})
+    return Response(stats.to_json(), status=200, mimetype='application/json;charset=UTF-8', headers={'Access-Control-Allow-Origin': '*'})
 	
 
 controller.add_url_rule('/stats/', view_func=stats)
