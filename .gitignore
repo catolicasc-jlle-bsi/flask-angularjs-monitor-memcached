@@ -1,1 +1,4 @@
 *.pyc
+*.vagrant
+*.node_modules
+*.bower_components

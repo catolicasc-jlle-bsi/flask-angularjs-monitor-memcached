@@ -1,0 +1,116 @@
+<div class="page page-dashboard" data-ng-controller="DashboardCtrl">
+        
+    <!-- stats -->
+    <div class="row">
+        <div class="col-lg-3 col-xsm-6">
+            <div class="panel mini-box">
+                <span class="box-icon bg-warning">
+                    <i class="fa fa-database"></i>
+                </span>
+                <div class="box-info">
+                    <p class="size-h2">{{indicators.curr_items}} <span class="size-h4"></span></p>
+                    <p class="text-muted"> <span data-i18n="items in cache"></span></p>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="text-small"> <span data-i18n="total number of items stored in the cache, since the cache is active"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-xsm-6">
+            <div class="panel mini-box">
+                <span class="box-icon bg-info">
+                    <i class="fa fa-cloud"></i>
+                </span>
+                <div class="box-info">
+                    <p class="size-h2">{{indicators.total_connections}}</p>
+                    <p class="text-muted"> <span data-i18n="connections"></span></p>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="text-small"> <span data-i18n="total number of open connections, since the cache is active"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-xsm-6">
+            <div class="panel mini-box">
+                <span class="box-icon bg-success">
+                    <i class="fa fa-upload"></i>
+                </span>
+                <div class="box-info">
+                    <p class="size-h2">{{indicators.get_hits}}</p>
+                    <p class="text-muted"> <span data-i18n="items found"></span></p>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="text-small"> <span data-i18n="number of requested items that were found in cache"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-xsm-12">
+            <div class="panel mini-box">
+                <span class="box-icon bg-danger">
+                    <i class="fa fa-download"></i>
+                </span>
+                <div class="box-info">
+                    <p class="size-h2">{{indicators.get_misses}}</p>
+                    <p class="text-muted"><span data-i18n="items not found"></span></p>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="text-small"> <span data-i18n="number of requested items that were not found in the cache"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- end stats -->
+    
+    <section data-ng-controller="flotChartCtrl">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><span data-i18n="active connections"></span></h3>
+            </div>
+            <div class="panel-body" data-ng-controller="flotChartCtrl.realtime">
+                <div data-flot-chart-realtime
+                     data-type="realtime"
+                     style="width: 100%; height: 300px;"
+                     ></div>
+            </div>
+        </div>
+    </section>
+        
+    <section data-ng-controller="chartCtrl">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><span data-i18n="assertiveness in strategy 'reading versus writing'"></span></h3>
+                    </div>
+                    <div class="panel-body text-center">
+                        <div easypiechart options="assertivenessReadWrite.options" percent="assertivenessReadWrite.percent" class="easypiechart">
+                            <span class="pie-percent" ng-bind="assertivenessReadWrite.percent"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><span data-i18n="assertiveness of items found in the cache"></span></h3>
+                    </div>
+                    <div class="panel-body text-center">
+                        <div easypiechart options="assertivenessItemsFound.options" percent="assertivenessItemsFound.percent" class="easypiechart">
+                            <span class="pie-percent" ng-bind="assertivenessItemsFound.percent"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</div>

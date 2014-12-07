@@ -1,0 +1,95 @@
+.pricing-table {
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: #fcfcfc;
+    color: $text-color;
+    border-radius: $border-radius-large;
+    box-shadow: 0 0 3px rgba(0,0,0,.2);
+
+    > header {
+        display: block;
+        margin: 0;
+        padding: 30px 40px;
+        font-size: 22px;
+        line-height: 1;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .pricing-price {
+        padding: 14px;
+        font-size: 18px;
+        color: $reverse;
+        background-color: #ccc;
+        border-bottom: 3px solid darken(#ccc, 8%);
+    }
+
+    .pricing-body {
+        > ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-size: 16px;
+            > li {
+                padding: 12px;
+                border-bottom: 1px solid rgba(0,0,0,.05);
+                background-color: #f9f9f9;
+                &:nth-child(odd) {
+                    background-color: $gray-lighter;
+                }
+
+                strong {
+                    color: $dark;
+                }
+
+            }
+        }
+    }
+
+    > footer {
+        padding: 30px 40px;
+        > a {
+            display: block;
+            margin: 0;
+            font-size: 16px;
+        }
+    }
+
+    // 
+    &.pricing-table-dark {
+        .pricing-price {
+            background-color: $dark;
+            border-bottom: 3px solid darken($dark, 8%);
+        }
+    }
+    &.pricing-table-primary {
+        .pricing-price {
+            background-color: $brand-primary;
+            border-bottom: 3px solid darken($brand-primary, 8%);
+        }
+    }
+    &.pricing-table-success {
+        .pricing-price {
+            background-color: $brand-success;
+            border-bottom: 3px solid darken($brand-success, 8%);
+        }
+    }
+    &.pricing-table-info {
+        .pricing-price {
+            background-color: $brand-info;
+            border-bottom: 3px solid darken($brand-info, 8%);
+        }
+    }
+    &.pricing-table-warning {
+        .pricing-price {
+            background-color: $brand-warning;
+            border-bottom: 3px solid darken($brand-warning, 8%);
+        }
+    }
+    &.pricing-table-danger {
+        .pricing-price {
+            background-color: $brand-danger;
+            border-bottom: 3px solid darken($brand-danger, 8%);
+        }
+    }
+}
