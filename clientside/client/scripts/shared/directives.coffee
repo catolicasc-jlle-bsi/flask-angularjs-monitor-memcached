@@ -1,6 +1,21 @@
 
 angular.module('app.directives', [])
 
+.directive("barchart", [ ->
+    createChart = (el_id, options) ->
+        options.element = el_id
+        r = new Morris.Bar(options)
+        r
+    restrict: "E"
+    scope:
+        options: "="
+
+    replace: true
+    template: "<div></div>"
+    link: link = (scope, element, attrs) ->
+        createChart attrs.id, scope.options
+])
+
 .directive('imgHolder', [ ->
     return {
         restrict: 'A'
@@ -206,32 +221,5 @@ angular.module('app.directives', [])
                     $window.history.back()
                 )
         ]
-    }
-])
-
-.directive('areachart', [ ->
-    return {
-        restrict: 'A',
-        template: '<div></div>',
-        replace: true,
-        link: ($scope, element, attrs) ->
-        
-            data = $scope[attrs.data]
-            xkey = $scope[attrs.xkey]
-            ykeys= $scope[attrs.ykeys]
-            labels= $scope[attrs.labels]
-
-            setData = () ->
-                console.log 'inside setData function'
-                Morris.Area({
-                    element: element,
-                    data: data,
-                    xkey: xkey,
-                    ykeys: ykeys,
-                    labels: labels
-                })
-
-            attrs.$observe('data',setData);
-
     }
 ])

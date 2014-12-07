@@ -93,23 +93,3 @@ angular.module('app.ui.form.ctrls', [])
             {stateOff: 'glyphicon-off'}
         ]
 ])
-# .controller('TagsDemoCtrl', [
-#     '$scope'
-#     ($scope) ->
-#         $scope.cities = [
-#             { "value": 1 , "text": "Amsterdam"   , "continent": "Europe"    }
-#             { "value": 4 , "text": "Washington"  , "continent": "America"   }
-#             { "value": 7 , "text": "Sydney"      , "continent": "Australia" }
-#             { "value": 10, "text": "Beijing"     , "continent": "Asia"      }
-#             { "value": 13, "text": "Cairo"       , "continent": "Africa"    }
-#         ]
-
-#         $scope.getTagClass = (city) ->
-#             switch (city.continent)
-#                 when 'Europe'   then return 'label label-info'
-#                 when 'America'  then return 'label label-danger'
-#                 when 'Australia'then return 'label label-success'
-#                 when 'Africa'   then return 'label label-primary'
-#                 when 'Asia'     then return 'label label-warning'        
-# ])
-

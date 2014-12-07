@@ -66,14 +66,6 @@ angular.module('app.localization', [])
         return localize
 ])
 
-# filter will be called on and on, so directive is preferred
-# .filter('i18n', [
-#     'localize'
-#     (localize) ->
-#         return (input) ->
-#             return localize.getLocalizedString(input)
-# ])
-
 .directive('i18n', [
     'localize'
     (localize) ->
@@ -108,8 +100,8 @@ angular.module('app.localization', [])
 
         $scope.setLang = (lang) ->
             switch lang
-                when 'English' then localize.setLanguage('EN-US')
-                when 'Español' then localize.setLanguage('ES-ES')
+                when 'English'   then localize.setLanguage('EN-US')
+                when 'Español'   then localize.setLanguage('ES-ES')
                 when 'Português' then localize.setLanguage('PT-BR')
 
             $scope.lang = lang
